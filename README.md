@@ -1,6 +1,6 @@
 <h1 align="center"> 
     <br>
-  <a><img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/logo-cropped.png?raw=true" alt="App Logo" width="200"></a>
+  <a><img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/logo-cropped.png?raw=true" alt="App Logo" width="180"></a>
   <br>Big-Night-In</h1>
 <h4 align="center">Evening Planner - Film &amp; Food inspiration for an evening in</h4>
 
