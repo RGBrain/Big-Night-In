@@ -18,9 +18,9 @@
 
 ## User Story
 ```
-AS AN 
-I WANT 
-SO THAT I 
+AS A person that wants to spend a night in
+I WANT to receive mood-matching recommendations for a movie and food for this evening
+SO THAT I don’t waste time searching for these myself
 ```
 
 ## Acceptance Criteria
