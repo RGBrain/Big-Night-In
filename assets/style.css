@@ -38,6 +38,25 @@
   color: var(--orange) !important;
 }
 
-/* .jumbotron {
-  background-image: url() !important;
-} */
+.jumbotron {
+  background-image: url(../assets/images/Hero-image-resized.jpg) !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(80vh - 25px);
+}
+
+.jumbotron {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: var(--off-white);
+}
+
+.btn {
+  background-color: var(--orange);
+  border: var(--orange);
+}
+
+.btn:hover {
+  color: var(--orange);
+  background-color: var(--off-white);
+  border: var(--off-white);
+}
