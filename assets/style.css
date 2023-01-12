@@ -34,6 +34,6 @@
     color: var(--off-white) !important;
 }
 
-a:hover {
-  background-color: var(--orange);
+.nav-link:hover {
+  color: var(--orange) !important;
 }
