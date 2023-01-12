@@ -6,6 +6,10 @@
     --grey-purple: #3F3B54;
   }
 
+  body {
+    background-color: var(--grey-purple)
+  }
+
   h1,
   h2,
   h3,
@@ -49,6 +53,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: calc(80vh - 25px);
+  padding-left: 100px;
 }
 
 .jumbotron {
@@ -64,6 +69,17 @@
   color: var(--orange);
   background-color: var(--off-white);
   border: var(--off-white);
+}
+
+.contain {
+  padding: 50px 100px 80px 100px;
+}
+
+h2 {
+  color: var(--off-white);
+  text-decoration: underline;
+  font-weight: bold;
+  
 }
 
 footer {
