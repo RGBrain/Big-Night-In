@@ -1,10 +1,3 @@
-// API settings 
-
-// TMDB (Movie Database)
-baseURL = "https://api.themoviedb.org/3/movie/550?api_key=";
-baseDiscoverURL = "https://api.themoviedb.org/3/discover/movie?api_key=";
-personURL = "https://api.themoviedb.org/3/person/287?api_key=";
-APIKEY = "c4321cfbc4e58956270feef6a91120a8";
 
 // watchProvidersList = "https://www.themoviedb.org/movie/577922-tenet/api.themoviedb.org/3/movie/577922/watch/providers?api_key="
 
@@ -44,6 +37,25 @@ let watchRegion = "^GB$"
 let watchProviders = "with_watch_providers=337"
 
 
+// API settings 
+
+
+// Search for a movie based on criteria
+// Find out that movie ID
+// get info for that movie
+// where to watch
+
+
+
+
+
+// TMDB (Movie Database)
+baseURL = "https://api.themoviedb.org/3/movie/550?api_key=";
+baseDiscoverURL = "https://api.themoviedb.org/3/discover/movie?api_key=";
+personURL = "https://api.themoviedb.org/3/person/287?api_key=";
+APIKEY = "c4321cfbc4e58956270feef6a91120a8";
+
+
 let genre = "&with_genres=35";
 
 function test(film) {
@@ -55,6 +67,5 @@ function test(film) {
     .then(function(response) {
         console.log(response)
     })
-
 }
     test();
