@@ -14,7 +14,7 @@
   </head>
   <body>
     <!-- Nav bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
       <a class="navbar-brand spacer" href="#">
         <img src="./assets/images/logo-cropped.png" alt="Big Night In" width="90" height="45">
       </a>
@@ -39,12 +39,12 @@
       <br>
       <p class="lead">Take the stress out of deciding what to watch and eat. Let Big Night in take care of it all.</p>
       <br>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Decide your Big Night In</a>
+        <a class="btn btn-primary btn-lg btn-main" href="#" role="button">Decide your Big Night In</a>
       </p>
     </div>
 
     <!--How it works container-->
-    <div class="container.fluid contain">
+    <!-- <section class="container.fluid contain">
       <div class="row">
         <div class="col">
           <h2>How it works</h2>
@@ -58,7 +58,54 @@
           2 of 2
         </div>
       </div>
-    </div>
+    </section> -->
+
+    <section class="container.fluid container-about">
+      <h2>How it works</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card">
+            <img src="./assets/images/remote control.jpg" alt="Big Night In">
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    1. Tell us what you fancy
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  Answer a few short questions to let us know what kind of movie you'd like, who's watching and where you're located. 
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    2. Let BNI plan your night
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  Using your answers, we'll provide a suggestion of what to watch and what to eat!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
 
     <!--Footer-->
     <footer class="spacer">
