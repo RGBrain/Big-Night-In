@@ -60,7 +60,7 @@
   color: var(--off-white);
 }
 
-.btn {
+.btn-main {
   background-color: var(--orange);
   border: var(--orange);
 }
@@ -80,6 +80,14 @@ h2 {
   text-decoration: underline;
   font-weight: bold;
   
+}
+
+.container-about {
+  padding: 50px 100px;
+}
+
+.card-header {
+  background-color: var(--orange);
 }
 
 footer {
