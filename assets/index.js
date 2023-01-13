@@ -2,13 +2,7 @@
 
 // TMDB (Movie Database)
 
-// Certficate
-// rating (don't ask user)
-// Genre (quirky question/s)
-// Platforms
-// language
-
-// ? PLACEHOLDER VARIABLES - TO BE TAKEN DYNAMICALLY FROM USER.
+// ? PLACEHOLDER VARIABLES FOR NOW, BUT WILL BE TAKEN DYNAMICALLY FROM USER.
 let watchRegion = "&^GB$";
 let watchProviders = "&with_watch_providers=337";
 let genre = "&with_genres=35";
