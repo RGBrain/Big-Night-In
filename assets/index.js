@@ -1,33 +1,49 @@
 // API settings 
 
-// TMDB (Movie Database)
+// TMDB APIs
 const baseURL = "https://api.themoviedb.org/3/";
-const discoverURL = "https://api.themoviedb.org/3/discover/movie?api_key=";
-const movieInfoURL = "https://api.themoviedb.org/3/movie/";
-const genreURL = "genre/movie/list?api_key="
-const providerURL = "watch/providers/movie?api_key="
+const discoverURL = "discover/movie?api_key=";
+const movieInfoURL = "movie/";
+const genreURL = "genre/movie/list?api_key=";
+const providerURL = "watch/providers/movie?api_key=";
+const certURL = "certification/movie/list?api_key=";
 // API Key
 const APIKEY = "c4321cfbc4e58956270feef6a91120a8";
 
-// https://api.themoviedb.org/3/watch/providers/regions?api_key=c4321cfbc4e58956270feef6a91120a8&language=en-US
-
-// https://api.themoviedb.org/3/watch/providers/movie?api_key=c4321cfbc4e58956270feef6a91120a8&language=en-US&watch_region=GB
-
-// genre
-// Family friendly?
-// length?  Short - Epic - I don't care
-
-// ? PLACEHOLDER VARIABLES FOR NOW, BUT WILL BE TAKEN DYNAMICALLY FROM USER.
-// let watchRegion = "&^GB$";
-let watchRegion = "&watch_region=GB"
-let watchProviderTest = "&with_watch_providers=337";
-let genre = "&with_genres=35";
-let rating = "";
+// API Queries 
+let watchRegion = "&watch_region=GB";
+// This searches for Netflix (8) or Disney Plus (337)
+let watchProviderTest = "&with_watch_providers=337|8";
+let genre = "&with_genres=28";
+let minVotes = "&vote_count.gte=3500"
 let lang = "&language=en-US";
-let cert = "";
-let certificationCountry = "GB"
-let movieID = "899112"
+let certificationCountry = "&certification_country=GB";
+let familyCerts = "&certification=PG%7CU";
+let movieID = "1726";
+let sortByPop = "&sort_by=popularity.desc";
+let removeAdult = "&include_adult=false";
+let removeTrailers = "&include_video=false";
+let page = "&page=1&page=2";
+let freeWithSub = "&with_watch_monetization_types=flatrate";
+let longFilms = "&with_runtime.gte=150"
+let shortFilms = "&with_runtime.lte=100"
+
+
 // Object Maps
+
+// Certs     *****We may not need this, can hardcode U & PG***
+function certMap() {
+    let queryURL = baseURL + certURL + APIKEY 
+    console.log("cert URL" + queryURL)
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    })
+    .then(function(response) {
+        console.log("certs: ")
+        console.log(response)
+    })
+}
 
 // Create Genre Object Map 
 const genres = new Map();
@@ -58,7 +74,6 @@ function providerMap() {
         method: "GET",
     })
     .then(function(response) {
-        console.log("line 60: " + response.results.provider_name)
         // Build object map
         for (let i = 0; i < response.results.length; i++) {
             watchProviders.set(response.results[i].provider_name, response.results[i].provider_id);
@@ -69,31 +84,35 @@ function providerMap() {
 
 // Get array of films
 function filmSearch() {
-    let queryURL = discoverURL + APIKEY + genre
+    let queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + genre + watchProviderTest + watchRegion + freeWithSub + longFilms;
     console.log("filmSearch URL: " + queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
     })
     .then(function(response) {
-        // console.log("film search: " + JSON.stringify(response))
+        console.log("film search: " + JSON.stringify(response))
+        // ADD RANDOM FILM SELECTOR
+        // STORE FILM ID AND PASS TO getFILM
+        console.log("film id: " + (response.results[0].id))
         getFilm()
     })
 }
 
-// Get film information
+// Get info for a given film
 function getFilm() {
-    let queryURL = movieInfoURL + movieID + "?api_key=" + APIKEY
-    // console.log("getFilm URL: " + queryURL)
+    let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang
+    console.log("getFilm URL: " + queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
     })
     .then(function(response) {
         console.log
-        // console.log("film info: " + JSON.stringify(response))
+        console.log("film info: " + JSON.stringify(response))
     })
 }
     genreMap();
-    providerMap()
+    providerMap();
+    certMap();
     filmSearch();
