@@ -17,6 +17,10 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
+  h1 {
+    letter-spacing: 5px;
+  }
+
   .navbar {
     background-color: var(--black-purple) !important;
 
@@ -77,8 +81,11 @@
 
 h2 {
   color: var(--off-white);
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: bold;
+  text-align: center;
+  padding-bottom: 40px;
+  letter-spacing: 5px;
   
 }
 
@@ -88,6 +95,31 @@ h2 {
 
 .card-header {
   background-color: var(--orange);
+}
+
+.feature {
+  padding: 50px;
+}
+
+.userForm {
+  padding: 80px 100px;
+  background-color: var(--orange);
+  align-content: center;
+}
+
+.form-check {
+  color: var(--off-white);
+}
+
+.question {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.submit {
+  background-color: var(--grey-purple);
+  border-color: var(--grey-purple);
 }
 
 footer {
