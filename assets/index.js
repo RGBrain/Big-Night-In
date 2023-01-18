@@ -11,13 +11,10 @@ let queryURL = ""
 // API Key
 const APIKEY = "c4321cfbc4e58956270feef6a91120a8";
 
-// API Queries - **SOME ARE HARDCODED WITH VALUES AT THE MOMENT**
+// API Queries
 let watchRegion = "&watch_region=GB";
-// This searches for Netflix (8) or Disney Plus (337)
 let watchProviderString = "&with_watch_providers=";
 let genreString = "&with_genres="
-// let genreChoice = THE USER INPUT HERE
-// let genreID = genres.get(genreChoice)
 let minVotes = "&vote_count.gte=3500"
 let lang = "&language=en-US";
 let certificationCountry = "&certification_country=GB";
@@ -31,54 +28,59 @@ let longFilms = "&with_runtime.gte=150";
 let shortFilms = "&with_runtime.lte=100";
 
 
-// Create queryURL
 $(".submit").click(function(){
     event.preventDefault()
-    queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + freeWithSub + watchRegion
+    // 
+    // Create a URL based on user choices
+    //
+    // Create initial URL
+    queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + freeWithSub + watchRegion;
 
     // Check genres
-    let genres = [];
-    if ($('#Netflix').is(":checked"))
+    let genreArray = [];
+    if ($('#Comedy').is(":checked"))
         {
-            providers.push(watchProviders.get("Netflix"));
-            console.log(providers)
+            genreArray.push(genres.get("Comedy"));
+            console.log(genres)
         }
-    if ($('#AmazonPrime').is(":checked"))
+    if ($('#Action').is(":checked"))
         {
-            providers.push(watchProviders.get("Amazon Prime Video"));
-            console.log(providers)
+            genreArray.push(genres.get("Action"));
+            console.log(genres)
         }
-    if ($('#Disney').is(":checked"))
+    if ($('#Thriller').is(":checked"))
         {
-            providers.push(watchProviders.get("Disney Plus"));
-            console.log(providers)
+            genreArray.push(genres.get("Thriller"));
+            console.log(genres)
         }
-    if ($('#AppleTV').is(":checked"))
+    if ($('#Horror').is(":checked"))
         {
-            providers.push(watchProviders.get("Apple TV Plus"));
-            console.log(providers)
+            genreArray.push(genres.get("Horror"));
+            console.log(genres)
         }
-    if ($('#BBCiPlayer').is(":checked"))
+    if ($('#Drama').is(":checked"))
         {
-            providers.push(watchProviders.get("BBC iPlayer"));
-            console.log(providers)
+            genreArray.push(genres.get("Drama"));
+            console.log(genres)
         }
-    if ($('#ITV').is(":checked"))
+    if ($('#Romance').is(":checked"))
         {
-            providers.push(watchProviders.get("ITVX"));
-            console.log(providers)
+            genreArray.push(genres.get("Romance"));
+            console.log(genres)
         }
-    if (providers.length < 1) {
-        console.log ("Searching all providers")
+    // If no genres are selected, search all genres
+    if (genreArray.length < 1) {
+        console.log ("Searching all genres");
     }
-    
-    else if (providers.length < 2) {
-        queryURL += watchProviderString + providers[0];
+    // If one genre is selected
+    else if (genreArray.length < 2) {
+        queryURL += genreString + genreArray[0];
     }
+    // If several genres are selected use pipes for 'or'
     else {
-        queryURL += watchProviderString + providers[0];
-        for (var i = 1; i < providers.length; i++) {
-            queryURL += "|" + providers[i];
+        queryURL += genreString + genreArray[0];
+        for (var i = 1; i < genreArray.length; i++) {
+            queryURL += "|" + genreArray[i];
         }
     }
 
@@ -114,13 +116,15 @@ $(".submit").click(function(){
             providers.push(watchProviders.get("ITVX"));
             console.log(providers)
         }
+    // If no providers are selected, search all genres
     if (providers.length < 1) {
         console.log ("Searching all providers")
     }
-    
+    // If one provider is selected
     else if (providers.length < 2) {
         queryURL += watchProviderString + providers[0];
     }
+    // If several providers are selected use pipes for 'or'
     else {
         queryURL += watchProviderString + providers[0];
         for (var i = 1; i < providers.length; i++) {
@@ -128,8 +132,7 @@ $(".submit").click(function(){
         }
     }
 
-
-        // NEED TO ADD A THIRD OPTION HERE
+    // NEED TO ADD A THIRD OPTION HERE
     // Check for family friendly
     if ($('#yes').is(":checked"))
         {
@@ -168,7 +171,7 @@ function genreMap() {
         for (let i = 0; i < response.genres.length; i++) {
             genres.set(response.genres[i].name, response.genres[i].id);
         }
-        // console.log(genres)
+        console.log(genres)
         // console.log(" The code is: " + genres.get("Comedy"))
     })
 }
