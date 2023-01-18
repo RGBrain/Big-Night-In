@@ -36,12 +36,12 @@ The following animation demonstrates the application functionality:
 
 
 
-## Link to Deployed Application
-[Live URL]()
+## URL App
+[Link to Deployed Application]()
 
 
-## Link to Project GitHub Repo
-[GitHub Repo](https://github.com/RGBrain/Big-Night-In.git)
+##GitHub Repo
+[Link to GitHub Repo](https://github.com/RGBrain/Big-Night-In.git)
 
 
 ## Screenshot
