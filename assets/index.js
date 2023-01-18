@@ -19,6 +19,7 @@ let minVotes = "&vote_count.gte=3500"
 let lang = "&language=en-US";
 let certificationCountry = "&certification_country=GB";
 let familyCerts = "&certification=PG%7CU";
+let adultCerts = "&certification=15%2C%2018%2C%2012";
 let sortByPop = "&sort_by=popularity.desc";
 let removeAdult = "&include_adult=false";
 let removeTrailers = "&include_video=false";
@@ -27,12 +28,13 @@ let freeWithSub = "&with_watch_monetization_types=flatrate";
 let longFilms = "&with_runtime.gte=150";
 let shortFilms = "&with_runtime.lte=100";
 
-
+// RUN SEARCH WHEN FORM SUBMITTED
 $(".submit").click(function(){
     event.preventDefault()
     // 
     // Create a URL based on user choices
     //
+
     // Create initial URL
     queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + freeWithSub + watchRegion;
 
@@ -121,12 +123,16 @@ $(".submit").click(function(){
         }
     }
 
-    // NEED TO ADD A THIRD OPTION HERE
     // Check for family friendly
     if ($('#yes').is(":checked"))
         {
             queryURL += familyCerts;
         }
+    if ($('#no').is(":checked"))
+        {
+            queryURL += adultCerts;
+        }
+
 
     // Check for film length
     if ($('#long').is(":checked"))
@@ -137,7 +143,6 @@ $(".submit").click(function(){
         {
             queryURL += shortFilms;
         }
-    console.log(queryURL)
     filmSearch(queryURL);
 })
 
@@ -176,7 +181,6 @@ function providerMap() {
         for (let i = 0; i < response.results.length; i++) {
             watchProviders.set(response.results[i].provider_name, response.results[i].provider_id);
         }
-        console.log(watchProviders)
     })
 }
 
@@ -187,11 +191,7 @@ function filmSearch(queryURL) {
         method: "GET",
     })
     .then(function(response) {
-        // console.log("film search: " + JSON.stringify(response))
-        // console.log("film id: " + (response.results[getRandom()].id))
         let movieID = response.results[getRandom(response.results.length)].id;
-        console.log(response.results.length)
-        console.log(getRandom(response.results.length))
         getFilm(movieID)
     })
 }
@@ -199,14 +199,13 @@ function filmSearch(queryURL) {
 // Get info for a given film
 function getFilm(movieID) {
     let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang
-    console.log("getFilm URL: " + queryURL)
+    console.log("Chosen Film: " + queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
     })
+    // Create elements for film information
     .then(function(response) {
-        console.log
-        console.log("film info: " + JSON.stringify(response))
         let movieDiv = $('<div>');
         let movieTitle = $('<h2>').text(response.title);
         let moviePlot = $('<p>').text(response.overview);
@@ -220,40 +219,10 @@ function getFilm(movieID) {
     })
     
 }
-    genreMap();
-    providerMap();
-    // filmSearch();
 
-
-
- // displayMovieInfo function re-renders the HTML to display the appropriate content
- function displayMovieInfo() {
-
-    var movie = $(this).attr("data-name");
-    var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
- 
-    // Creates AJAX call for the specific movie button being clicked
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-    .then(function(response) {
-        let movieDiv = $('<div>');
-        let movieTitle = $('<h2>').text(response.Title);
-        let moviePlot = $('<p>').text(response.Plot);
-        let movieRating = $('<h4>').text(response.Rated);
-        let movieRelease = $('<h2>').text(response.Released);
-        let moviePoster = $('<img>').attr('src', response.Poster);
-        moviePoster.attr('width','50px');
-        
-        movieDiv.append(movieTitle, moviePlot, movieRating, movieRelease, moviePoster);
-        $('#movies-view').prepend(movieDiv);
- 
-        console.log(response)
- 
-    });
- 
-  }
+// Create Object Maps
+genreMap();
+providerMap();
 
 
 // 
