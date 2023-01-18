@@ -14,8 +14,8 @@ const APIKEY = "c4321cfbc4e58956270feef6a91120a8";
 // API Queries - **SOME ARE HARDCODED WITH VALUES AT THE MOMENT**
 let watchRegion = "&watch_region=GB";
 // This searches for Netflix (8) or Disney Plus (337)
-let watchProviderTest = "&with_watch_providers=337|8";
-let genre = "&with_genres=28"
+let watchProviderString = "&with_watch_providers=";
+let genreString = "&with_genres="
 // let genreChoice = THE USER INPUT HERE
 // let genreID = genres.get(genreChoice)
 let minVotes = "&vote_count.gte=3500"
@@ -30,12 +30,112 @@ let freeWithSub = "&with_watch_monetization_types=flatrate";
 let longFilms = "&with_runtime.gte=150";
 let shortFilms = "&with_runtime.lte=100";
 
-// ! REMOVED:   + genre + watchProviderTest + watchRegion + freeWithSub + longFilms;
 
 // Create queryURL
 $(".submit").click(function(){
     event.preventDefault()
     queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + freeWithSub + watchRegion
+
+    // Check genres
+    let genres = [];
+    if ($('#Netflix').is(":checked"))
+        {
+            providers.push(watchProviders.get("Netflix"));
+            console.log(providers)
+        }
+    if ($('#AmazonPrime').is(":checked"))
+        {
+            providers.push(watchProviders.get("Amazon Prime Video"));
+            console.log(providers)
+        }
+    if ($('#Disney').is(":checked"))
+        {
+            providers.push(watchProviders.get("Disney Plus"));
+            console.log(providers)
+        }
+    if ($('#AppleTV').is(":checked"))
+        {
+            providers.push(watchProviders.get("Apple TV Plus"));
+            console.log(providers)
+        }
+    if ($('#BBCiPlayer').is(":checked"))
+        {
+            providers.push(watchProviders.get("BBC iPlayer"));
+            console.log(providers)
+        }
+    if ($('#ITV').is(":checked"))
+        {
+            providers.push(watchProviders.get("ITVX"));
+            console.log(providers)
+        }
+    if (providers.length < 1) {
+        console.log ("Searching all providers")
+    }
+    
+    else if (providers.length < 2) {
+        queryURL += watchProviderString + providers[0];
+    }
+    else {
+        queryURL += watchProviderString + providers[0];
+        for (var i = 1; i < providers.length; i++) {
+            queryURL += "|" + providers[i];
+        }
+    }
+
+    // Check providers
+    let providers = [];
+    if ($('#Netflix').is(":checked"))
+        {
+            providers.push(watchProviders.get("Netflix"));
+            console.log(providers)
+        }
+    if ($('#AmazonPrime').is(":checked"))
+        {
+            providers.push(watchProviders.get("Amazon Prime Video"));
+            console.log(providers)
+        }
+    if ($('#Disney').is(":checked"))
+        {
+            providers.push(watchProviders.get("Disney Plus"));
+            console.log(providers)
+        }
+    if ($('#AppleTV').is(":checked"))
+        {
+            providers.push(watchProviders.get("Apple TV Plus"));
+            console.log(providers)
+        }
+    if ($('#BBCiPlayer').is(":checked"))
+        {
+            providers.push(watchProviders.get("BBC iPlayer"));
+            console.log(providers)
+        }
+    if ($('#ITV').is(":checked"))
+        {
+            providers.push(watchProviders.get("ITVX"));
+            console.log(providers)
+        }
+    if (providers.length < 1) {
+        console.log ("Searching all providers")
+    }
+    
+    else if (providers.length < 2) {
+        queryURL += watchProviderString + providers[0];
+    }
+    else {
+        queryURL += watchProviderString + providers[0];
+        for (var i = 1; i < providers.length; i++) {
+            queryURL += "|" + providers[i];
+        }
+    }
+
+
+        // NEED TO ADD A THIRD OPTION HERE
+    // Check for family friendly
+    if ($('#yes').is(":checked"))
+        {
+            queryURL += familyCerts;
+        }
+
     // Check for film length
     if ($('#long').is(":checked"))
         {
@@ -49,30 +149,10 @@ $(".submit").click(function(){
     filmSearch(queryURL);
 })
 
-// var test = "";
-
-// $(".submit").click(function(){
-//     event.preventDefault()
-//     test = "here's a valuesfdsfaff";
-//     console.log("Long value: " + $('#long').val() + test);
-//     if ($('#long').is(":checked"))
-// {
-//     console.log("Long is checked ");
-// }
-// else {
-//     console.log("long is not checked");
-// }
-// })
-
-
-// console.log("form has been submitted: " + test)
-
-
 // Generate pseudo-random number
 function getRandom() {
     return Math.floor(Math.random() * 19);
     }
-
 
 // Create Genre Object Map 
 const genres = new Map();
@@ -107,7 +187,7 @@ function providerMap() {
         for (let i = 0; i < response.results.length; i++) {
             watchProviders.set(response.results[i].provider_name, response.results[i].provider_id);
         }
-        // console.log(watchProviders)
+        console.log(watchProviders)
     })
 }
 
