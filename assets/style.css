@@ -75,18 +75,21 @@
   border: var(--off-white);
 }
 
+.btn-main:focus {
+  background-color: var(--orange) !important;
+  border: var(--orange) !important;
+  }
+
 .contain {
   padding: 50px 100px 80px 100px;
 }
 
 h2 {
   color: var(--off-white);
-  /* text-decoration: underline; */
   font-weight: bold;
   text-align: center;
   padding-bottom: 40px;
   letter-spacing: 5px;
-  
 }
 
 .container-about {
@@ -101,9 +104,13 @@ h2 {
   color: var(--off-white);
 }
 
-/* .feature {
-  padding: 50px;
-} */
+.btn-link:hover {
+  text-decoration: none;
+}
+
+.btn-link:focus {
+  text-decoration: none;
+}
 
 .userForm {
   padding: 80px 100px;
@@ -125,6 +132,11 @@ h2 {
   background-color: var(--grey-purple);
   border-color: var(--grey-purple);
 }
+
+.submit:focus {
+  background-color: var(--grey-purple) !important;
+  border: var(--grey-purple) !important;
+  }
 
 .container-results {
   padding: 80px 100px;

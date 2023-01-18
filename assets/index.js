@@ -209,16 +209,18 @@ function getFilm(movieID) {
         let movieDiv = $('<div>');
         let movieTitle = $('<h2>').text(response.title);
         let moviePlot = $('<p>').text(response.overview);
-        let movieRating = $('<h4>').text(response.vote_average.toFixed(2) + "/10");
+        let movieRating = $('<h4>').text(response.vote_average.toFixed(1) + "/10");
         let moviePoster = $('<img>').attr('src', "https://image.tmdb.org/t/p/original/" + response.poster_path);
         movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
         // Remove previous searches
-        $('#results').empty();
+        $('#results').empty();  
         // Add film recommendation to page
         $('#results').prepend(movieDiv);
+        $('.container-results').css('display','block');
     })
     
 }
+
 
 // Create Object Maps
 genreMap();
