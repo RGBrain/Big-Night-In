@@ -1,51 +1,49 @@
 /* Global colour palette */
 :root {
-    --black-purple: #140920;
-    --orange: #FF5627;
-    --off-white: #FEFFFE;
-    --grey-purple: #3F3B54;
-  }
+  --black-purple: #140920;
+  --orange: #ff5627;
+  --off-white: #fefffe;
+  --grey-purple: #3f3b54;
+}
 
-  body {
-    background-color: var(--grey-purple)
-  }
+body {
+  background-color: var(--grey-purple);
+}
 
-  h1,
-  h2,
-  h3,
-  p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
+h1,
+h2,
+h3,
+p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
-  h1 {
-    letter-spacing: 5px;
-  }
+h1 {
+  letter-spacing: 5px;
+}
 
-  .navbar {
-    background-color: var(--black-purple) !important;
+.navbar {
+  background-color: var(--black-purple) !important;
+}
 
-  }
-
-  .navbar-nav {
-    margin-left: auto;
-    margin-right: 50px !important;
-    font-size: 18px;
-    
+.navbar-nav {
+  margin-left: auto;
+  margin-right: 50px !important;
+  font-size: 18px;
 }
 
 .navbar-brand {
-    margin-left: 50px;
-    font-size: 22px;
-    color: var(--black-purple) !important;    
+  margin-left: 50px;
+  font-size: 22px;
+  color: var(--black-purple) !important;
 }
 
 .nav-item {
-    margin-right: 20px;
-    
+  margin-right: 20px;
 }
 
 .nav-link {
-    color: var(--off-white) !important;
+  color: var(--off-white) !important;
 }
 
 .nav-link:hover {
@@ -78,7 +76,7 @@
 .btn-main:focus {
   background-color: var(--orange) !important;
   border: var(--orange) !important;
-  }
+}
 
 .contain {
   padding: 50px 100px 80px 100px;
@@ -136,11 +134,48 @@ h2 {
 .submit:focus {
   background-color: var(--grey-purple) !important;
   border: var(--grey-purple) !important;
-  }
+}
 
 .container-results {
+  width: 100%;
+  display: flex;
   padding: 80px 100px;
   display: none;
+}
+
+.movie-div {
+  max-width: fit-content;
+}
+
+.container-results h3 {
+  color: var(--orange);
+  text-align: center;
+  font-weight: 800;
+  padding-bottom: 10px;
+}
+
+.container-results p {
+  color: var(--off-white);
+  width: 55%;
+  margin: auto;
+  display: block;
+  text-align: center;
+  font-weight: 300;
+}
+
+.container-results h4 {
+  color: var(--off-white);
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  padding-top: 15px;
+}
+
+.container-results img {
+  aspect-ratio: auto;
+  width: 300px;
+  margin: auto;
+  display: block;
 }
 
 footer {
@@ -148,7 +183,4 @@ footer {
   background-color: var(--black-purple);
   color: var(--off-white);
   padding: 30px 0px 10px 0px;
-
 }
-
-
