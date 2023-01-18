@@ -75,18 +75,21 @@
   border: var(--off-white);
 }
 
+.btn-main:focus {
+  background-color: var(--orange) !important;
+  border: var(--orange) !important;
+  }
+
 .contain {
   padding: 50px 100px 80px 100px;
 }
 
 h2 {
   color: var(--off-white);
-  /* text-decoration: underline; */
   font-weight: bold;
   text-align: center;
   padding-bottom: 40px;
   letter-spacing: 5px;
-  
 }
 
 .container-about {
@@ -97,8 +100,16 @@ h2 {
   background-color: var(--orange);
 }
 
-.feature {
-  padding: 50px;
+.btn-link {
+  color: var(--off-white);
+}
+
+.btn-link:hover {
+  text-decoration: none;
+}
+
+.btn-link:focus {
+  text-decoration: none;
 }
 
 .userForm {
@@ -122,8 +133,14 @@ h2 {
   border-color: var(--grey-purple);
 }
 
+.submit:focus {
+  background-color: var(--grey-purple) !important;
+  border: var(--grey-purple) !important;
+  }
+
 .container-results {
   padding: 80px 100px;
+  display: none;
 }
 
 footer {
@@ -133,3 +150,5 @@ footer {
   padding: 30px 0px 10px 0px;
 
 }
+
+
