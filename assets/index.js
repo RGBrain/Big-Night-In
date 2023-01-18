@@ -1,7 +1,5 @@
 // API settings 
 
-// TMDB 
-
 // TMDB APIs
 const baseURL = "https://api.themoviedb.org/3/";
 const discoverURL = "discover/movie?api_key=";
@@ -9,6 +7,7 @@ const movieInfoURL = "movie/";
 const genreURL = "genre/movie/list?api_key=";
 const providerURL = "watch/providers/movie?api_key=";
 const certURL = "certification/movie/list?api_key=";
+let queryURL = "" 
 // API Key
 const APIKEY = "c4321cfbc4e58956270feef6a91120a8";
 
@@ -31,31 +30,55 @@ let freeWithSub = "&with_watch_monetization_types=flatrate";
 let longFilms = "&with_runtime.gte=150";
 let shortFilms = "&with_runtime.lte=100";
 
+// ! REMOVED:   + genre + watchProviderTest + watchRegion + freeWithSub + longFilms;
+
+// Create queryURL
+$(".submit").click(function(){
+    event.preventDefault()
+    queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + freeWithSub + watchRegion
+    // Check for film length
+    if ($('#long').is(":checked"))
+        {
+            queryURL += longFilms;
+        }
+    else if ($('#short').is(":checked")) 
+        {
+            queryURL += shortFilms;
+        }
+    console.log(queryURL)
+    filmSearch(queryURL);
+})
+
+// var test = "";
+
+// $(".submit").click(function(){
+//     event.preventDefault()
+//     test = "here's a valuesfdsfaff";
+//     console.log("Long value: " + $('#long').val() + test);
+//     if ($('#long').is(":checked"))
+// {
+//     console.log("Long is checked ");
+// }
+// else {
+//     console.log("long is not checked");
+// }
+// })
+
+
+// console.log("form has been submitted: " + test)
+
+
 // Generate pseudo-random number
 function getRandom() {
     return Math.floor(Math.random() * 19);
     }
 
-// Object Maps
-// Certs     *** We may not need this, can just hardcode U & PG ***
-// function certMap() {
-//     let queryURL = baseURL + certURL + APIKEY 
-//     console.log("cert URL" + queryURL)
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET",
-//     })
-//     .then(function(response) {
-//         console.log("certs: ")
-//         console.log(response)
-//     })
-// }
 
 // Create Genre Object Map 
 const genres = new Map();
 function genreMap() {
     let queryURL = baseURL + genreURL + APIKEY 
-    console.log(queryURL)
+    // console.log(queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -65,8 +88,8 @@ function genreMap() {
         for (let i = 0; i < response.genres.length; i++) {
             genres.set(response.genres[i].name, response.genres[i].id);
         }
-        console.log(genres)
-        console.log(" The code is: " + genres.get("Comedy"))
+        // console.log(genres)
+        // console.log(" The code is: " + genres.get("Comedy"))
     })
 }
 
@@ -74,7 +97,7 @@ function genreMap() {
 const watchProviders = new Map();
 function providerMap() {
     let queryURL = baseURL + providerURL + APIKEY + lang + watchRegion;
-    console.log(queryURL);
+    // console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -84,22 +107,19 @@ function providerMap() {
         for (let i = 0; i < response.results.length; i++) {
             watchProviders.set(response.results[i].provider_name, response.results[i].provider_id);
         }
-        console.log(watchProviders)
+        // console.log(watchProviders)
     })
 }
 
 // GET FILM ARRAY AND RANDOMLY SELECT ONE
-function filmSearch() {
-    // Build URL
-    let queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + genre + watchProviderTest + watchRegion + freeWithSub + longFilms;
-    console.log("filmSearch URL: " + queryURL)
+function filmSearch(queryURL) {
     $.ajax({
         url: queryURL,
         method: "GET",
     })
     .then(function(response) {
-        console.log("film search: " + JSON.stringify(response))
-        console.log("film id: " + (response.results[getRandom()].id))
+        // console.log("film search: " + JSON.stringify(response))
+        // console.log("film id: " + (response.results[getRandom()].id))
         let movieID = response.results[getRandom()].id
         getFilm(movieID)
     })
@@ -108,7 +128,7 @@ function filmSearch() {
 // Get info for a given film
 function getFilm(movieID) {
     let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang
-    console.log("getFilm URL: " + queryURL)
+    // console.log("getFilm URL: " + queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -120,7 +140,7 @@ function getFilm(movieID) {
 }
     genreMap();
     providerMap();
-    filmSearch();
+    // filmSearch();
 
 
 // 
@@ -151,14 +171,14 @@ function findFood() {
     // let queryURL = ttBaseURL + ttCatSearch + foodType + format + geo + URLEnd + ttAPIKey;
     let queryURL = "https://api.tomtom.com/search/2/search/52.1116,-2.3293.json?key=" + ttAPIKey;
     // let queryURL = "https://api.tomtom.com/search/2/poiCategories.json?key=" + ttAPIKey;
-    console.log("API Test: " + queryURL)
+    // console.log("API Test: " + queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
     })
     .then(function(response) {
-        console.log(response)
-        console.log("TOMTOM API: " + JSON.stringify(response))
+        // console.log(response)
+        // console.log("TOMTOM API: " + JSON.stringify(response))
     })
 }
     findFood();
