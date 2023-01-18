@@ -199,7 +199,7 @@ function filmSearch(queryURL) {
 // Get info for a given film
 function getFilm(movieID) {
     let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang
-    // console.log("getFilm URL: " + queryURL)
+    console.log("getFilm URL: " + queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -207,11 +207,53 @@ function getFilm(movieID) {
     .then(function(response) {
         console.log
         console.log("film info: " + JSON.stringify(response))
+        let movieDiv = $('<div>');
+        let movieTitle = $('<h2>').text(response.title);
+        let moviePlot = $('<p>').text(response.overview);
+        let movieRating = $('<h4>').text(response.vote_average.toFixed(2) + "/10");
+        let moviePoster = $('<img>').attr('src', "https://image.tmdb.org/t/p/original/" + response.poster_path);
+        movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
+        // Remove previous searches
+        $('#results').empty();
+        // Add film recommendation to page
+        $('#results').prepend(movieDiv);
     })
+    
 }
     genreMap();
     providerMap();
     // filmSearch();
+
+
+
+ // displayMovieInfo function re-renders the HTML to display the appropriate content
+ function displayMovieInfo() {
+
+    var movie = $(this).attr("data-name");
+    var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+ 
+    // Creates AJAX call for the specific movie button being clicked
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+    .then(function(response) {
+        let movieDiv = $('<div>');
+        let movieTitle = $('<h2>').text(response.Title);
+        let moviePlot = $('<p>').text(response.Plot);
+        let movieRating = $('<h4>').text(response.Rated);
+        let movieRelease = $('<h2>').text(response.Released);
+        let moviePoster = $('<img>').attr('src', response.Poster);
+        moviePoster.attr('width','50px');
+        
+        movieDiv.append(movieTitle, moviePlot, movieRating, movieRelease, moviePoster);
+        $('#movies-view').prepend(movieDiv);
+ 
+        console.log(response)
+ 
+    });
+ 
+  }
 
 
 // 
