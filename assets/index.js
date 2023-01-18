@@ -41,32 +41,27 @@ $(".submit").click(function(){
     if ($('#Comedy').is(":checked"))
         {
             genreArray.push(genres.get("Comedy"));
-            console.log(genres)
         }
     if ($('#Action').is(":checked"))
         {
             genreArray.push(genres.get("Action"));
-            console.log(genres)
         }
     if ($('#Thriller').is(":checked"))
         {
             genreArray.push(genres.get("Thriller"));
-            console.log(genres)
         }
     if ($('#Horror').is(":checked"))
         {
             genreArray.push(genres.get("Horror"));
-            console.log(genres)
         }
     if ($('#Drama').is(":checked"))
         {
             genreArray.push(genres.get("Drama"));
-            console.log(genres)
         }
     if ($('#Romance').is(":checked"))
         {
             genreArray.push(genres.get("Romance"));
-            console.log(genres)
+
         }
     // If no genres are selected, search all genres
     if (genreArray.length < 1) {
@@ -89,32 +84,26 @@ $(".submit").click(function(){
     if ($('#Netflix').is(":checked"))
         {
             providers.push(watchProviders.get("Netflix"));
-            console.log(providers)
         }
     if ($('#AmazonPrime').is(":checked"))
         {
             providers.push(watchProviders.get("Amazon Prime Video"));
-            console.log(providers)
         }
     if ($('#Disney').is(":checked"))
         {
             providers.push(watchProviders.get("Disney Plus"));
-            console.log(providers)
         }
-    if ($('#AppleTV').is(":checked"))
+    if ($('#Hayu').is(":checked"))
         {
-            providers.push(watchProviders.get("Apple TV Plus"));
-            console.log(providers)
+            providers.push(watchProviders.get("Hayu Amazon Channel"));
         }
     if ($('#BBCiPlayer').is(":checked"))
         {
             providers.push(watchProviders.get("BBC iPlayer"));
-            console.log(providers)
         }
     if ($('#ITV').is(":checked"))
         {
             providers.push(watchProviders.get("ITVX"));
-            console.log(providers)
         }
     // If no providers are selected, search all genres
     if (providers.length < 1) {
@@ -153,15 +142,15 @@ $(".submit").click(function(){
 })
 
 // Generate pseudo-random number
-function getRandom() {
-    return Math.floor(Math.random() * 19);
+function getRandom(length) {
+    
+    return Math.floor(Math.random() * length);
     }
 
 // Create Genre Object Map 
 const genres = new Map();
 function genreMap() {
     let queryURL = baseURL + genreURL + APIKEY 
-    // console.log(queryURL)
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -171,8 +160,6 @@ function genreMap() {
         for (let i = 0; i < response.genres.length; i++) {
             genres.set(response.genres[i].name, response.genres[i].id);
         }
-        console.log(genres)
-        // console.log(" The code is: " + genres.get("Comedy"))
     })
 }
 
@@ -180,7 +167,6 @@ function genreMap() {
 const watchProviders = new Map();
 function providerMap() {
     let queryURL = baseURL + providerURL + APIKEY + lang + watchRegion;
-    // console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -203,7 +189,9 @@ function filmSearch(queryURL) {
     .then(function(response) {
         // console.log("film search: " + JSON.stringify(response))
         // console.log("film id: " + (response.results[getRandom()].id))
-        let movieID = response.results[getRandom()].id
+        let movieID = response.results[getRandom(response.results.length)].id;
+        console.log(response.results.length)
+        console.log(getRandom(response.results.length))
         getFilm(movieID)
     })
 }
