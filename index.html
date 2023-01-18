@@ -93,130 +93,130 @@
 
 
 
-    <!-- form-->
-    <form class="userForm">
-      <h2>GET STARTED</h2>
-      <div class="form-check">
-        <label for="exampleFormControlSelect1" class="question">What genre(s) do you fancy watching?</label>
-        <BR>
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        <label class="form-check-label" for="defaultCheck1">
-          Comedy
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck2">
-          Action
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck3">
-          Thriller
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck4">
-          Horror
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck5">
-          Drama
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck6">
-          Romance
-        </label>
-      </div>
+<!-- form-->
+<form class="userForm">
+  <h2>GET STARTED</h2>
+  <div class="form-check" id="genre">
+    <label for="exampleFormControlSelect1" class="question">What genre(s) do you fancy watching?</label>
+    <BR>
+    <input class="form-check-input" type="checkbox" value="Comedy" name="genre[]" id="Comedy" checked>
+    <label class="form-check-label" for="Comedy">
+      Comedy
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Action" name="genre[]" id="Action" checked>
+    <label class="form-check-label" for="Action">
+      Action
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Thriller" name="genre[]" id="Thriller">
+    <label class="form-check-label" for="Thriller">
+      Thriller
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Horror" name="genre[]" id="Horror">
+    <label class="form-check-label" for="Horror">
+      Horror
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Drama" name="genre[]" id="Drama">
+    <label class="form-check-label" for="defaultCheck5">
+      Drama
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Romance" name="genre[]" id="Romance">
+    <label class="form-check-label" for="defaultCheck6">
+      Romance
+    </label>
+  </div>
+  <BR>
+  <div class="form-check">
+    <label for="exampleFormControlSelect1" class="question">What streaming platforms do you have?</label>
+    <BR>
+    <input class="form-check-input" type="checkbox" value="Netflix" name="watchProvider[]" id="Netflix" checked>
+    <label class="form-check-label" for="Netflix">
+      Netflix
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Amazon Prime" name="watchProvider[]" id="AmazonPrime" checked>
+    <label class="form-check-label" for="AmazonPrime">
+      Amazon Prime
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Disney+" name="watchProvider[]" id="Disney+">
+    <label class="form-check-label" for="Disney+">
+      Disney+
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Apple TV+" name="watchProvider[]" id="AppleTV+">
+    <label class="form-check-label" for="AppleTV+">
+      Apple TV+
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="BBC iPlayer" name="watchProvider[]" id="BBCiPlayer">
+    <label class="form-check-label" for="BBCiPlayer">
+      BBC iPlayer
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="ITV+" name="watchProvider[]" id="ITV+">
+    <label class="form-check-label" for="ITV+">
+      ITV+
+    </label>
+  </div>
+  <BR>
+    <div class="form-check">
+      <label for="exampleFormControlSelect1" class="question">do you want a family friendly movie?</label>
       <BR>
+      <input class="form-check-input" type="radio" value="Yes" name="familyFriendly" id="yes">
+      <label class="form-check-label" for="yes">
+        Yes
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" value="No" name="familyFriendly" id="no" checked>
+      <label class="form-check-label" for="no">
+        No
+      </label>
+    </div>
+    <BR>
       <div class="form-check">
-        <label for="exampleFormControlSelect1" class="question">What streaming platforms do you have?</label>
+        <label for="exampleFormControlSelect1" class="question">how long would you like the movie to be?</label>
         <BR>
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        <label class="form-check-label" for="defaultCheck1">
-          Netflix
+        <input class="form-check-input" type="radio" value="short" name="length" id="short" checked>
+        <label class="form-check-label" for="short">
+          Under 100 minutes
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <input class="form-check-input" type="radio" value="long" name="length" id="long">
         <label class="form-check-label" for="defaultCheck2">
-          Amazon Prime
+          Over 150 minutes
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck2">
-          Disney+
+        <input class="form-check-input" type="radio" value="I Don't Mind" name="length" id="na">
+        <label class="form-check-label" for="na">
+          I don't mind
         </label>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck2">
-          Apple TV+
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck2">
-          BBC iPlayer
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck2">
-          ITV+
-        </label>
-      </div>
-      <BR>
-        <div class="form-check">
-          <label for="exampleFormControlSelect1" class="question">do you want a family friendly movie?</label>
-          <BR>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Yes
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-          <label class="form-check-label" for="defaultCheck2">
-            No
-          </label>
-        </div>
-        <BR>
-          <div class="form-check">
-            <label for="exampleFormControlSelect1" class="question">how long would you like the movie to be?</label>
-            <BR>
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Under 100 minutes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-            <label class="form-check-label" for="defaultCheck2">
-              Over 150 minutes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-            <label class="form-check-label" for="defaultCheck2">
-              I don't mind
-            </label>
-          </div>
-       
-        
-      </div>
-        <br>
-        <button type="submit" class="btn btn-primary submit">Submit</button>
-      </div>
-      
-    </form>
+   
+    
+  </div>
+    <br>
+    <button type="submit" class="btn btn-primary submit" id="submit-button">Submit</button>
+  </div>
+  
+</form>
 
     <!--Results-->
     <section class="container.fluid container-results">
