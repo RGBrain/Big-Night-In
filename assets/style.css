@@ -128,6 +128,7 @@ h2 {
 
 .container-results {
   padding: 80px 100px;
+  display: none;
 }
 
 footer {
@@ -138,9 +139,4 @@ footer {
 
 }
 
-@media screen and (max-width: 800px) {
-  .remote{
-    visibility: hidden;
-  }
-  
-}
+
