@@ -16,7 +16,7 @@
   </head>
   <body>
     <!-- Nav bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
       <a class="navbar-brand spacer" href="#">
         <img src="./assets/images/logo-cropped.png" alt="Big Night In" width="90" height="45">
       </a>
@@ -37,30 +37,192 @@
 
     <!--Jumbotron-->
     <div class="jumbotron">
-      <h1 class="display-4">Put your feet up with Big Night In!</h1>
+      <h1 class="display-4">GET READY FOR A BIG NIGHT IN!</h1>
       <br>
       <p class="lead">Take the stress out of deciding what to watch and eat. Let Big Night in take care of it all.</p>
       <br>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Decide your Big Night In</a>
+        <a class="btn btn-primary btn-lg btn-main" href="#" role="button">Decide your Big Night In</a>
       </p>
     </div>
 
     <!--How it works container-->
-    <div class="container.fluid contain">
+
+    <section class="container.fluid container-about">
+      <h2>HOW IT WORKS</h2>
       <div class="row">
-        <div class="col">
-          <h2>How it works</h2>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card">
+            <img src="./assets/images/remote control.jpg" alt="Big Night In">
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    1. Tell us what you fancy
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  Answer a few short questions to let us know what kind of movie you'd like, who's watching and where you're located. 
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    2. Let BNI plan your night
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  Using your answers, we'll provide a suggestion of what to watch and what to eat!
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          1 of 2
-        </div>
-        <div class="col">
-          2 of 2
-        </div>
+    </section>
+
+
+
+    <!-- form-->
+    <form class="userForm">
+      <h2>GET STARTED</h2>
+      <div class="form-check">
+        <label for="exampleFormControlSelect1" class="question">What genre(s) do you fancy watching?</label>
+        <BR>
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Comedy
+        </label>
       </div>
-    </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          Action
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck3">
+          Thriller
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck4">
+          Horror
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck5">
+          Drama
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck6">
+          Romance
+        </label>
+      </div>
+      <BR>
+      <div class="form-check">
+        <label for="exampleFormControlSelect1" class="question">What streaming platforms do you have?</label>
+        <BR>
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Netflix
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          Amazon Prime
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          Disney+
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          Apple TV+
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          BBC iPlayer
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          ITV+
+        </label>
+      </div>
+      <BR>
+        <div class="form-check">
+          <label for="exampleFormControlSelect1" class="question">do you want a family friendly movie?</label>
+          <BR>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+          <label class="form-check-label" for="defaultCheck2">
+            No
+          </label>
+        </div>
+        <BR>
+          <div class="form-check">
+            <label for="exampleFormControlSelect1" class="question">how long would you like the movie to be?</label>
+            <BR>
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Under 100 minutes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">
+              Over 150 minutes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">
+              I don't mind
+            </label>
+          </div>
+       
+        
+      </div>
+        <br>
+        <button type="submit" class="btn btn-primary submit">Submit</button>
+      </div>
+      
+    </form>
+
+    <!--Results-->
+    <section class="container.fluid container-results">
+      <h2>YOUR BIG NIGHT IN</h2>
+      
+    </section>
 
     <!--Footer-->
     <footer class="spacer">

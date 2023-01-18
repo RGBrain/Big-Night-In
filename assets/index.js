@@ -1,5 +1,7 @@
 // API settings 
 
+// TMDB 
+
 // TMDB APIs
 const baseURL = "https://api.themoviedb.org/3/";
 const discoverURL = "discover/movie?api_key=";
@@ -119,6 +121,7 @@ function getFilm(movieID) {
     genreMap();
     providerMap();
     filmSearch();
+
 
 // 
 // TOMTOM API
