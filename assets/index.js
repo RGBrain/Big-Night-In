@@ -188,6 +188,7 @@ function filmSearch(queryURL) {
   });
 }
 
+
 // Get info for a given film
 function getFilm(movieID) {
   let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang;
@@ -204,12 +205,12 @@ function getFilm(movieID) {
         let movieRating = $('<h4>').text("TMDB Rating: " + response.vote_average.toFixed(1) + "/10");
         let moviePoster = $('<img>').attr('src', "https://image.tmdb.org/t/p/original/" + response.poster_path);
         movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
+        console.log()
         // Remove previous searches
         $('#results').empty();
         // Add film recommendation to page
         $('#results').prepend(movieDiv);
         $(".container-results").css("display", "block");
-        
         findFood();
     })
 }
@@ -271,7 +272,12 @@ function findFood() {
     .then(function(response) {
         // console.log(response)
         let restaurantText = $('<h2>').text("Treat yourself to a pizza!").addClass("food");
-        let restaurant = $('<a>').text(response.results[0].poi.name).prop("href", response.results[0].poi.url).addClass("food-link")
+        let restURL = response.results[0].poi.url;
+        // Add "https://" if not present in URL
+        if (restURL.charAt(0) == 'w') {
+          restURL = "https://" + restURL
+        }
+        let restaurant = $('<a>').text(response.results[0].poi.name).prop("href", restURL).addClass("food-link")
         let restaurantPhone = $('<h4>').text(response.results[0].poi.phone).addClass("food-contact").prop("href", "http://www.google.com/")
         $('#results').append(restaurantText);
         $('#results').append(restaurant);

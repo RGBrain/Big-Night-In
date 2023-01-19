@@ -20,6 +20,7 @@ p {
 
 h1 {
   letter-spacing: 5px;
+  text-shadow: 1px 1px 5px #140920;
 }
 
 .navbar {
@@ -56,6 +57,11 @@ h1 {
   background-repeat: no-repeat;
   height: calc(80vh - 25px);
   padding-left: 100px;
+}
+
+.jumbotron p {
+  text-shadow: 1px 1px 5px #140920;
+  font-weight: 800px;
 }
 
 .jumbotron {
@@ -181,6 +187,28 @@ h2 {
   box-shadow: 10px 3px 40px rgb(26, 23, 23);
 }
 
+.food {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.container-results a {
+  font-size: 50px;
+  display: block;
+  text-align: center;
+  color: var(--orange);
+  text-decoration: none;
+}
+
+.food-link:hover {
+  color: var(--off-white);
+  text-decoration: none;
+}
+
+.food-contact {
+  text-align: center;
+}
+
 footer {
   text-align: center;
   background-color: var(--black-purple);
@@ -203,31 +231,6 @@ footer {
   margin-top: auto;
 }
 
-.food {
-  margin-top: 50px;
-  text-align: center;
-}
-
-.food-link {
-  font-size: 50px;
-  /* text-align: center;
-  align-items: center;
-  margin: 0 auto;
-  justify-content: center; */
-  color: var(--orange);
-  text-decoration: none;
-}
-
-.food-link:hover {
-
-  color: var(--off-white);
-  text-decoration: none;
-}
-
-.food-contact {
-  text-align: center;
-}
-
 .logos img {
   margin: 10px;
 }
@@ -241,7 +244,7 @@ footer p {
 
 @media screen and (max-width: 864px) {
   .container-results p {
-    width: 80%;
+    width: 90%;
   }
   .jumbotron {
     text-align: center;
@@ -251,7 +254,7 @@ footer p {
     align-items: center;
   }
   .jumbotron p {
-    width: 90%;
+    width: 80%;
   }
   .BNI-logo {
     padding-left: 0px;
