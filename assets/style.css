@@ -144,7 +144,7 @@ h2 {
 }
 
 .movie-div {
-  max-width: fit-content;
+  width: 100%;
 }
 
 .container-results h3 {
@@ -169,6 +169,7 @@ h2 {
   font-weight: 500;
   font-size: 20px;
   padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 .container-results img {
@@ -176,6 +177,7 @@ h2 {
   width: 300px;
   margin: auto;
   display: block;
+  border-radius: 10px;
 }
 
 footer {
