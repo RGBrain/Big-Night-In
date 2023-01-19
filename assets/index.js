@@ -223,14 +223,28 @@ providerMap();
 // TOMTOM API
 //
 
-let userLat = "51";
-let userLong = "0";
+let userLat = "";
+if (localStorage.getItem("lat")) {
+    userLat = localStorage.getItem("lat");
+}
+else {
+    userLat = 51;
+}
+let userLong = "";
+if (localStorage.getItem("lon")) {
+    userLon = localStorage.getItem("lon");
+}
+else {
+    userlong = 0
+}
 
 // Location settings
 const successCallback = (position) => {
     // console.log(position);
     userLat = position.coords.latitude;
+    localStorage.setItem('lat', userLat)
     userLong = position.coords.longitude;
+    localStorage.setItem('lon', userLong)
     console.log("Your current latitude: " + userLat);
     console.log("Your current longitude: " + userLong);
     // findFood(); 
@@ -246,14 +260,6 @@ const successCallback = (position) => {
     timeout: 5000,
   });
   
-  // watch position
-  // const watchId = navigator.geolocation.watchPosition(
-  //   successCallback,
-  //   errorCallback
-  // );
-  // Command to clear geolocation from console
-  // navigator.geolocation.clearWatch(watchId);
-
 const ttBaseURL = "https://api.tomtom.com/search/2/";
 const ttAPIKey = "jxWprAPAeXwm1cbD0NLRVPErGVwfEn1u";
 const ttCatSearch = "categorySearch/";
