@@ -197,24 +197,21 @@ function getFilm(movieID) {
     method: "GET",
   })
     // Create elements for film information
-    .then(function (response) {
-      let movieDiv = $("<div>");
-      let movieTitle = $("<h3>").text(response.title);
-      let moviePlot = $("<p>").text(response.overview);
-      let movieRating = $("<h4>").text(
-        "Rating: " + response.vote_average.toFixed(1) + "/10"
-      );
-      let moviePoster = $("<img>").attr(
-        "src",
-        "https://image.tmdb.org/t/p/original/" + response.poster_path
-      );
-      movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
-      // Remove previous searches
-      $("#results").empty();
-      // Add film recommendation to page
-      $("#results").prepend(movieDiv);
-      $(".container-results").css("display", "block");
-    });
+    .then(function(response) {
+        let movieDiv = $('<div>');
+        let headingTitle = $('<h2>').text("YOUR BIG NIGHT IN");
+        let movieTitle = $('<h2>').text(response.title);
+        let moviePlot = $('<p>').text(response.overview);
+        let movieRating = $('<h4>').text(response.vote_average.toFixed(2) + "/10");
+        let moviePoster = $('<img>').attr('src', "https://image.tmdb.org/t/p/original/" + response.poster_path);
+        movieDiv.append(headingTitle, movieTitle, moviePlot, movieRating, moviePoster);
+        // Remove previous searches
+        $('#results').empty();
+        // Add film recommendation to page
+        $('#results').prepend(movieDiv);
+        $(".container-results").css("display", "block");
+    })
+    
 }
 
 // Create Object Maps
@@ -225,38 +222,56 @@ providerMap();
 // TOMTOM API
 //
 
-// ? Request Format: https://{baseURL}/search/{versionNumber}/search/{query}.{ext}?key={Your_API_Key}&typeahead={typeahead}&limit={limit}&ofs={ofs}&countrySet={countrySet}&lat={lat}&lon={lon}&radius={radius}&topLeft={topLeft}&btmRight={btmRight}&language={language}&idxSet={idxSet}&extendedPostalCodesFor={extendedPostalCodesFor}&minFuzzyLevel={minFuzzyLevel}&maxFuzzyLevel={maxFuzzyLevel}&categorySet={categorySet}&brandSet={brandSet}&connectorSet={connectorSet}&fuelSet={fuelSet}&view={view}&openingHours={openingHours}&timeZone={timeZone}&mapcodes={mapcodes}&relatedPois={relatedPois}&minPowerKW={minPowerKW}&maxPowerKW={maxPowerKW}&entityTypeSet={entityTypeSet}
+let userLat = "50";
+let userLong = "0";
 
-// ? Request Example: https://api.tomtom.com/search/2/search/36.98844,-121.97483.json?key={Your_API_Key}
-
-// ? Geocode Example: https://api.tomtom.com/search/2/geocode/De Ruijterkade 154, 1011 AC, Amsterdam.json?key={Your_API_Key}
-
-// ! https://api.tomtom.com/search/2/categorySearch/pizza.json?lat=37.337&lon=-121.89&view=Unified&relatedPois=false&key=*****
-
-// ! https://api.tomtom.com/search/2/poiCategories.json?key={Your_API_Key}
+// Location settings
+const successCallback = (position) => {
+    console.log(position);
+    userLat = position.coords.latitude;
+    userLong = position.coords.longitude;
+    console.log("lat: " + userLat);
+    console.log("lon: " + userLong);
+    findFood();
+  };
+  
+  const errorCallback = (error) => {
+    // HANDLE NO LOCATION ERROR
+    console.log(error);
+  };
+  // get position
+  let userLocation = navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+    enableHighAccuracy: true,
+    timeout: 5000,
+  });
+  
+  // watch position
+  const watchId = navigator.geolocation.watchPosition(
+    successCallback,
+    errorCallback
+  );
+  // Command to clear geolocation from console
+  // navigator.geolocation.clearWatch(watchId);
 
 const ttBaseURL = "https://api.tomtom.com/search/2/";
 const ttAPIKey = "jxWprAPAeXwm1cbD0NLRVPErGVwfEn1u";
-let geo = "?lat=52.111&lon=-2.32";
 const ttCatSearch = "categorySearch/";
-let foodType = "pizza";
+let foodType = "pizza";;
 let format = ".json";
-let URLEnd = "&view=Unified&relatedPois=false&key=";
 
-// API Test
+// Get local pizza!
 function findFood() {
-  // let queryURL = ttBaseURL + ttCatSearch + foodType + format + geo + URLEnd + ttAPIKey;
-  let queryURL =
-    "https://api.tomtom.com/search/2/search/52.1116,-2.3293.json?key=" +
-    ttAPIKey;
-  // let queryURL = "https://api.tomtom.com/search/2/poiCategories.json?key=" + ttAPIKey;
-  // console.log("API Test: " + queryURL)
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    // console.log(response)
-    // console.log("TOMTOM API: " + JSON.stringify(response))
-  });
+    let queryURL =  ttBaseURL + ttCatSearch + foodType + format + "?key=" + ttAPIKey + "&lon=" + userLong + "&lat=" + userLat;
+    
+    console.log("API Test: " + queryURL)
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    })
+    .then(function(response) {
+        console.log(response)
+        console.log("TOMTOM API: " + JSON.stringify(response))
+        console.log(" restaurant name: " + response.results[0].poi.name)
+        console.log(" restaurant website: " + response.results[0].poi.url)
+    })
 }
-findFood();
