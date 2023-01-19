@@ -201,7 +201,7 @@ function getFilm(movieID) {
         let movieDiv = $('<div>');
         let movieTitle = $('<h2>').text(response.title);
         let moviePlot = $('<p>').text(response.overview);
-        let movieRating = $('<h4>').text(response.vote_average.toFixed(2) + "/10");
+        let movieRating = $('<h4>').text("TMDB Rating: " + response.vote_average.toFixed(1) + "/10");
         let moviePoster = $('<img>').attr('src', "https://image.tmdb.org/t/p/original/" + response.poster_path);
         movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
         // Remove previous searches
@@ -209,8 +209,9 @@ function getFilm(movieID) {
         // Add film recommendation to page
         $('#results').prepend(movieDiv);
         $(".container-results").css("display", "block");
+        
+        findFood();
     })
-    
 }
 
 // Create Object Maps
@@ -221,17 +222,17 @@ providerMap();
 // TOMTOM API
 //
 
-let userLat = "50";
+let userLat = "51";
 let userLong = "0";
 
 // Location settings
 const successCallback = (position) => {
-    console.log(position);
+    // console.log(position);
     userLat = position.coords.latitude;
     userLong = position.coords.longitude;
-    console.log("lat: " + userLat);
-    console.log("lon: " + userLong);
-    findFood();
+    console.log("Your current latitude: " + userLat);
+    console.log("Your current longitude: " + userLong);
+    // findFood(); 
   };
   
   const errorCallback = (error) => {
@@ -245,10 +246,10 @@ const successCallback = (position) => {
   });
   
   // watch position
-  const watchId = navigator.geolocation.watchPosition(
-    successCallback,
-    errorCallback
-  );
+  // const watchId = navigator.geolocation.watchPosition(
+  //   successCallback,
+  //   errorCallback
+  // );
   // Command to clear geolocation from console
   // navigator.geolocation.clearWatch(watchId);
 
@@ -268,9 +269,13 @@ function findFood() {
         method: "GET",
     })
     .then(function(response) {
-        console.log(response)
-        console.log("TOMTOM API: " + JSON.stringify(response))
-        console.log(" restaurant name: " + response.results[0].poi.name)
-        console.log(" restaurant website: " + response.results[0].poi.url)
+        // console.log(response)
+        let restaurantText = $('<h2>').text("Treat yourself to a pizza!").addClass("food");
+        let restaurant = $('<a>').text(response.results[0].poi.name).prop("href", response.results[0].poi.url).addClass("food-link")
+        let restaurantPhone = $('<h4>').text(response.results[0].poi.phone).addClass("food-contact").prop("href", "http://www.google.com/")
+        $('#results').append(restaurantText);
+        $('#results').append(restaurant);
+        $('#results').append(restaurantPhone);
+
     })
 }

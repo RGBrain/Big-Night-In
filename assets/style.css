@@ -203,6 +203,31 @@ footer {
   margin-top: auto;
 }
 
+.food {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.food-link {
+  font-size: 50px;
+  /* text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center; */
+  color: var(--orange);
+  text-decoration: none;
+}
+
+.food-link:hover {
+
+  color: var(--off-white);
+  text-decoration: none;
+}
+
+.food-contact {
+  text-align: center;
+}
+
 .logos img {
   margin: 10px;
 }
@@ -211,3 +236,29 @@ footer p {
   margin-top: 20px;
   font-weight: 500;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 864px) {
+  .container-results p {
+    width: 80%;
+  }
+  .jumbotron {
+    text-align: center;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .jumbotron p {
+    width: 90%;
+  }
+  .BNI-logo {
+    padding-left: 0px;
+  }
+  .navbar-brand {
+    margin-left: 10px;
+  }
+}
+
+/* End Media Queries */
