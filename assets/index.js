@@ -1,4 +1,4 @@
-// API settings 
+// API settings
 
 // TMDB APIs
 const baseURL = "https://api.themoviedb.org/3/";
@@ -7,15 +7,15 @@ const movieInfoURL = "movie/";
 const genreURL = "genre/movie/list?api_key=";
 const providerURL = "watch/providers/movie?api_key=";
 const certURL = "certification/movie/list?api_key=";
-let queryURL = "" 
+let queryURL = "";
 // API Key
 const APIKEY = "c4321cfbc4e58956270feef6a91120a8";
 
 // API Queries
 let watchRegion = "&watch_region=GB";
 let watchProviderString = "&with_watch_providers=";
-let genreString = "&with_genres="
-let minVotes = "&vote_count.gte=3500"
+let genreString = "&with_genres=";
+let minVotes = "&vote_count.gte=3500";
 let lang = "&language=en-US";
 let certificationCountry = "&certification_country=GB";
 let familyCerts = "&certification=PG%7CU";
@@ -29,181 +29,173 @@ let longFilms = "&with_runtime.gte=150";
 let shortFilms = "&with_runtime.lte=100";
 
 // RUN SEARCH WHEN FORM SUBMITTED
-$(".submit").click(function(){
-    event.preventDefault()
-    // 
-    // Create a URL based on user choices
-    //
+$(".submit").click(function () {
+  event.preventDefault();
+  //
+  // Create a URL based on user choices
+  //
 
-    // Create initial URL
-    queryURL = baseURL + discoverURL + APIKEY + lang + sortByPop + minVotes + certificationCountry + removeAdult + removeTrailers + page + freeWithSub + watchRegion;
+  // Create initial URL
+  queryURL =
+    baseURL +
+    discoverURL +
+    APIKEY +
+    lang +
+    sortByPop +
+    minVotes +
+    certificationCountry +
+    removeAdult +
+    removeTrailers +
+    page +
+    freeWithSub +
+    watchRegion;
 
-    // Check genres
-    let genreArray = [];
-    if ($('#Comedy').is(":checked"))
-        {
-            genreArray.push(genres.get("Comedy"));
-        }
-    if ($('#Action').is(":checked"))
-        {
-            genreArray.push(genres.get("Action"));
-        }
-    if ($('#Thriller').is(":checked"))
-        {
-            genreArray.push(genres.get("Thriller"));
-        }
-    if ($('#Horror').is(":checked"))
-        {
-            genreArray.push(genres.get("Horror"));
-        }
-    if ($('#Drama').is(":checked"))
-        {
-            genreArray.push(genres.get("Drama"));
-        }
-    if ($('#Romance').is(":checked"))
-        {
-            genreArray.push(genres.get("Romance"));
-
-        }
-    // If no genres are selected, search all genres
-    if (genreArray.length < 1) {
-        console.log ("Searching all genres");
+  // Check genres
+  let genreArray = [];
+  if ($("#Comedy").is(":checked")) {
+    genreArray.push(genres.get("Comedy"));
+  }
+  if ($("#Action").is(":checked")) {
+    genreArray.push(genres.get("Action"));
+  }
+  if ($("#Thriller").is(":checked")) {
+    genreArray.push(genres.get("Thriller"));
+  }
+  if ($("#Horror").is(":checked")) {
+    genreArray.push(genres.get("Horror"));
+  }
+  if ($("#Drama").is(":checked")) {
+    genreArray.push(genres.get("Drama"));
+  }
+  if ($("#Romance").is(":checked")) {
+    genreArray.push(genres.get("Romance"));
+  }
+  // If no genres are selected, search all genres
+  if (genreArray.length < 1) {
+    console.log("Searching all genres");
+  }
+  // If one genre is selected
+  else if (genreArray.length < 2) {
+    queryURL += genreString + genreArray[0];
+  }
+  // If several genres are selected use pipes for 'or'
+  else {
+    queryURL += genreString + genreArray[0];
+    for (var i = 1; i < genreArray.length; i++) {
+      queryURL += "|" + genreArray[i];
     }
-    // If one genre is selected
-    else if (genreArray.length < 2) {
-        queryURL += genreString + genreArray[0];
-    }
-    // If several genres are selected use pipes for 'or'
-    else {
-        queryURL += genreString + genreArray[0];
-        for (var i = 1; i < genreArray.length; i++) {
-            queryURL += "|" + genreArray[i];
-        }
-    }
+  }
 
-    // Check providers
-    let providers = [];
-    if ($('#Netflix').is(":checked"))
-        {
-            providers.push(watchProviders.get("Netflix"));
-        }
-    if ($('#AmazonPrime').is(":checked"))
-        {
-            providers.push(watchProviders.get("Amazon Prime Video"));
-        }
-    if ($('#Disney').is(":checked"))
-        {
-            providers.push(watchProviders.get("Disney Plus"));
-        }
-    if ($('#Hayu').is(":checked"))
-        {
-            providers.push(watchProviders.get("Hayu Amazon Channel"));
-        }
-    if ($('#BBCiPlayer').is(":checked"))
-        {
-            providers.push(watchProviders.get("BBC iPlayer"));
-        }
-    if ($('#ITV').is(":checked"))
-        {
-            providers.push(watchProviders.get("ITVX"));
-        }
-    // If no providers are selected, search all genres
-    if (providers.length < 1) {
-        console.log ("Searching all providers")
+  // Check providers
+  let providers = [];
+  if ($("#Netflix").is(":checked")) {
+    providers.push(watchProviders.get("Netflix"));
+  }
+  if ($("#AmazonPrime").is(":checked")) {
+    providers.push(watchProviders.get("Amazon Prime Video"));
+  }
+  if ($("#Disney").is(":checked")) {
+    providers.push(watchProviders.get("Disney Plus"));
+  }
+  if ($("#Hayu").is(":checked")) {
+    providers.push(watchProviders.get("Hayu Amazon Channel"));
+  }
+  if ($("#BBCiPlayer").is(":checked")) {
+    providers.push(watchProviders.get("BBC iPlayer"));
+  }
+  if ($("#ITV").is(":checked")) {
+    providers.push(watchProviders.get("ITVX"));
+  }
+  // If no providers are selected, search all genres
+  if (providers.length < 1) {
+    console.log("Searching all providers");
+  }
+  // If one provider is selected
+  else if (providers.length < 2) {
+    queryURL += watchProviderString + providers[0];
+  }
+  // If several providers are selected use pipes for 'or'
+  else {
+    queryURL += watchProviderString + providers[0];
+    for (var i = 1; i < providers.length; i++) {
+      queryURL += "|" + providers[i];
     }
-    // If one provider is selected
-    else if (providers.length < 2) {
-        queryURL += watchProviderString + providers[0];
-    }
-    // If several providers are selected use pipes for 'or'
-    else {
-        queryURL += watchProviderString + providers[0];
-        for (var i = 1; i < providers.length; i++) {
-            queryURL += "|" + providers[i];
-        }
-    }
+  }
 
-    // Check for family friendly
-    if ($('#yes').is(":checked"))
-        {
-            queryURL += familyCerts;
-        }
-    if ($('#no').is(":checked"))
-        {
-            queryURL += adultCerts;
-        }
+  // Check for family friendly
+  if ($("#yes").is(":checked")) {
+    queryURL += familyCerts;
+  }
+  if ($("#no").is(":checked")) {
+    queryURL += adultCerts;
+  }
 
-
-    // Check for film length
-    if ($('#long').is(":checked"))
-        {
-            queryURL += longFilms;
-        }
-    else if ($('#short').is(":checked")) 
-        {
-            queryURL += shortFilms;
-        }
-    filmSearch(queryURL);
-})
+  // Check for film length
+  if ($("#long").is(":checked")) {
+    queryURL += longFilms;
+  } else if ($("#short").is(":checked")) {
+    queryURL += shortFilms;
+  }
+  filmSearch(queryURL);
+});
 
 // Generate pseudo-random number
 function getRandom(length) {
-    
-    return Math.floor(Math.random() * length);
-    }
-
-// Create Genre Object Map 
-const genres = new Map();
-function genreMap() {
-    let queryURL = baseURL + genreURL + APIKEY 
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
-    .then(function(response) {
-        // Build object map
-        for (let i = 0; i < response.genres.length; i++) {
-            genres.set(response.genres[i].name, response.genres[i].id);
-        }
-    })
+  return Math.floor(Math.random() * length);
 }
 
-// Create Watch Provider Object Map 
+// Create Genre Object Map
+const genres = new Map();
+function genreMap() {
+  let queryURL = baseURL + genreURL + APIKEY;
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    // Build object map
+    for (let i = 0; i < response.genres.length; i++) {
+      genres.set(response.genres[i].name, response.genres[i].id);
+    }
+  });
+}
+
+// Create Watch Provider Object Map
 const watchProviders = new Map();
 function providerMap() {
-    let queryURL = baseURL + providerURL + APIKEY + lang + watchRegion;
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
-    .then(function(response) {
-        // Build object map
-        for (let i = 0; i < response.results.length; i++) {
-            watchProviders.set(response.results[i].provider_name, response.results[i].provider_id);
-        }
-    })
+  let queryURL = baseURL + providerURL + APIKEY + lang + watchRegion;
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    // Build object map
+    for (let i = 0; i < response.results.length; i++) {
+      watchProviders.set(
+        response.results[i].provider_name,
+        response.results[i].provider_id
+      );
+    }
+  });
 }
 
 // GET FILM ARRAY AND RANDOMLY SELECT ONE
 function filmSearch(queryURL) {
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
-    .then(function(response) {
-        let movieID = response.results[getRandom(response.results.length)].id;
-        getFilm(movieID)
-    })
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    let movieID = response.results[getRandom(response.results.length)].id;
+    getFilm(movieID);
+  });
 }
 
 // Get info for a given film
 function getFilm(movieID) {
-    let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang
-    console.log("Chosen Film: " + queryURL)
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
+  let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang;
+  console.log("Chosen Film: " + queryURL);
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  })
     // Create elements for film information
     .then(function(response) {
         let movieDiv = $('<div>');
@@ -217,6 +209,7 @@ function getFilm(movieID) {
         $('#results').empty();
         // Add film recommendation to page
         $('#results').prepend(movieDiv);
+        $(".container-results").css("display", "block");
     })
     
 }
@@ -225,10 +218,9 @@ function getFilm(movieID) {
 genreMap();
 providerMap();
 
-
-// 
+//
 // TOMTOM API
-// 
+//
 
 let userLat = "50";
 let userLong = "0";
