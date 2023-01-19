@@ -156,7 +156,7 @@ h2 {
 
 .container-results p {
   color: var(--off-white);
-  width: 55%;
+  width: 50%;
   margin: auto;
   display: block;
   text-align: center;
@@ -178,11 +178,36 @@ h2 {
   margin: auto;
   display: block;
   border-radius: 10px;
+  box-shadow: 10px 3px 40px rgb(26, 23, 23);
 }
 
 footer {
   text-align: center;
   background-color: var(--black-purple);
   color: var(--off-white);
-  padding: 30px 0px 10px 0px;
+  padding: 20px 0px 10px 0px;
+}
+
+.logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logos h6 {
+  font-size: 15px;
+  margin-right: 15px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.logos img {
+  margin: 10px;
+}
+
+footer p {
+  margin-top: 20px;
+  font-weight: 500;
 }

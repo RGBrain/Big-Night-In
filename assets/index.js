@@ -199,12 +199,11 @@ function getFilm(movieID) {
     // Create elements for film information
     .then(function(response) {
         let movieDiv = $('<div>');
-        let headingTitle = $('<h2>').text("YOUR BIG NIGHT IN");
         let movieTitle = $('<h2>').text(response.title);
         let moviePlot = $('<p>').text(response.overview);
         let movieRating = $('<h4>').text(response.vote_average.toFixed(2) + "/10");
         let moviePoster = $('<img>').attr('src', "https://image.tmdb.org/t/p/original/" + response.poster_path);
-        movieDiv.append(headingTitle, movieTitle, moviePlot, movieRating, moviePoster);
+        movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
         // Remove previous searches
         $('#results').empty();
         // Add film recommendation to page
