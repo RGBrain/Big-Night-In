@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Custom CSS  -->
     <link rel="stylesheet" href="assets/style.css">
+    <!-- Remove favicon error  -->
+    <link rel="shortcut icon" href="#">
 
     <title>Big Night In</title>
   </head>
@@ -16,7 +18,7 @@
     <!-- Nav bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-light">
       <a class="navbar-brand spacer" href="#">
-        <img src="./assets/images/logo-cropped.png" alt="Big Night In" width="90" height="45">
+        <img src="./assets/images/logo-cropped.png" alt="Big Night In" width="100" height="55">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,7 +29,7 @@
             <a class="nav-link spacer" href="#anchor-howItWorks">How it works</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link spacer" href="#anchor-skills">Get Started</a>
+            <a class="nav-link spacer" href="#anchor-getStarted">Get Started</a>
           </li>
         </ul>
       </div>
@@ -35,35 +37,20 @@
 
     <!--Jumbotron-->
     <div class="jumbotron">
-      <h1 class="display-4">Put your feet up with Big Night In!</h1>
+      <h1 class="display-4">GET READY FOR A BIG NIGHT IN!</h1>
       <br>
       <p class="lead">Take the stress out of deciding what to watch and eat. Let Big Night in take care of it all.</p>
       <br>
-        <a class="btn btn-primary btn-lg btn-main" href="#" role="button">Decide your Big Night In</a>
+        <a class="btn btn-primary btn-lg btn-main" href="#anchor-getStarted" role="button">Decide your Big Night In</a>
       </p>
     </div>
 
     <!--How it works container-->
-    <!-- <section class="container.fluid contain">
-      <div class="row">
-        <div class="col">
-          <h2>How it works</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          1 of 2
-        </div>
-        <div class="col">
-          2 of 2
-        </div>
-      </div>
-    </section> -->
 
     <section class="container.fluid container-about">
-      <h2>How it works</h2>
+      <h2 id="anchor-howItWorks">HOW IT WORKS</h2>
       <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="col-lg-4 col-md-4 col-sm-12 d-none d-md-block">
           <div class="card">
             <img src="./assets/images/remote control.jpg" alt="Big Night In">
           </div>
@@ -106,9 +93,152 @@
 
 
 
+<!-- form-->
+<form class="userForm">
+  <h2 id="anchor-getStarted">GET STARTED</h2>
+  <div class="form-check" id="genre">
+    <label for="exampleFormControlSelect1" class="question">What genre(s) do you fancy watching?</label>
+    <BR>
+    <input class="form-check-input" type="checkbox" value="Comedy" name="genre[]" id="Comedy">
+    <label class="form-check-label" for="Comedy">
+      Comedy
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Action" name="genre[]" id="Action">
+    <label class="form-check-label" for="Action">
+      Action
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Thriller" name="genre[]" id="Thriller">
+    <label class="form-check-label" for="Thriller">
+      Thriller
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Horror" name="genre[]" id="Horror">
+    <label class="form-check-label" for="Horror">
+      Horror
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Drama" name="genre[]" id="Drama">
+    <label class="form-check-label" for="defaultCheck5">
+      Drama
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Romance" name="genre[]" id="Romance">
+    <label class="form-check-label" for="defaultCheck6">
+      Romance
+    </label>
+  </div>
+  <BR>
+  <div class="form-check">
+    <label for="exampleFormControlSelect1" class="question">What streaming platforms do you have?</label>
+    <BR>
+    <input class="form-check-input" type="checkbox" value="Netflix" name="watchProvider[]" id="Netflix">
+    <label class="form-check-label" for="Netflix">
+      Netflix
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Amazon Prime" name="watchProvider[]" id="AmazonPrime">
+    <label class="form-check-label" for="AmazonPrime">
+      Amazon Prime
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Disney+" name="watchProvider[]" id="Disney">
+    <label class="form-check-label" for="Disney+">
+      Disney+
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Hayu" name="watchProvider[]" id="Hayu">
+    <label class="form-check-label" for="Hayu">
+      Hayu
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="BBC iPlayer" name="watchProvider[]" id="BBCiPlayer">
+    <label class="form-check-label" for="BBCiPlayer">
+      BBC iPlayer
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="ITV+" name="watchProvider[]" id="ITV">
+    <label class="form-check-label" for="ITV+">
+      ITVX
+    </label>
+  </div>
+  <BR>
+    <div class="form-check">
+      <label for="exampleFormControlSelect1" class="question">do you want a family friendly movie?</label>
+      <BR>
+      <input class="form-check-input" type="radio" value="Yes" name="familyFriendly" id="yes">
+      <label class="form-check-label" for="yes">
+        Yes
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" value="No" name="familyFriendly" id="no" checked>
+      <label class="form-check-label" for="no">
+        No
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" value="All" name="familyFriendly" id="all" checked>
+      <label class="form-check-label" for="all">
+        I don't mind
+      </label>
+    </div>
+    <BR>
+      <div class="form-check">
+        <label for="exampleFormControlSelect1" class="question">how long would you like the movie to be?</label>
+        <BR>
+        <input class="form-check-input" type="radio" value="short" name="length" id="short">
+        <label class="form-check-label" for="short">
+          Under 100 minutes
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="long" name="length" id="long">
+        <label class="form-check-label" for="defaultCheck2">
+          Over 150 minutes
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="I Don't Mind" name="length" id="na" checked>
+        <label class="form-check-label" for="na">
+          I don't mind
+        </label>
+      </div>
+   
+    
+  </div>
+    <br>
+    <button type="submit" class="btn btn-primary submit" id="submit-button">Submit</button>
+  </div>
+  
+</form>
+
+    <!--Results-->
+    <section class="container.fluid container-results">
+      <h2>YOUR BIG NIGHT IN</h2>
+      <div id="results" class="movie-div">
+        
+      </div>
+      
+    </section>
 
     <!--Footer-->
     <footer class="spacer">
+      <div class="logos">
+      <img src="./assets/images/TMDB Logo.svg" alt="logo of API provider - TMDB" style="width: 50px;"/>
+      <img src="./assets/images/JustWatch-logo.png" alt="logo of API provider - JustWatch" style="width: 75px;">
+      </div>
       <p>Designed by Team One 2023.</p>
     </footer>
 
