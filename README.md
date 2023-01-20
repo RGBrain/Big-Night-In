@@ -18,15 +18,15 @@
 
 Interactive Front-End Application developed by a group of 3 people.
 
-What problem is the app (Big-Night-In) solving?
+What solutions the app (Big-Night-In) provides?
 
 - A simple, easy to use tool to **help users decide what to watch** during their big night in.
 - A tool that takes the user input to **generate a suggestion of what to watch based on certain criteria**.
 - A tool that not only populates a movie suggestion, but also **provides information about the suggested movie and a rating**.
 - A tool that also **suggests a take out meal suggestion based on the users location** (stored in users local storage).
 
-APIs used: <img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/TMDB%20Logo.svg" alt="API logo" width=70px>
-<img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/JustWatch1-logo.png" alt="API logo" width=70px/>
+APIs used: <img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/TMDB%20Logo.svg" alt="API logo" width=50px>
+<img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/JustWatch-logo.png" alt="API logo" width=90px/>
 
 ## User Story
 
@@ -55,7 +55,7 @@ The app meets the following requirements:
 
 In the project planning stage using **Figma** we created layout of the page for both Desktop and Smartphone screen.
 
-![](/assets/images/Wireframes%20in%20Figma.png)
+<div align="center"><img src="https://github.com/RGBrain/Big-Night-In/blob/dev/assets/images/Wireframes%20in%20Figma.png" width=600px></div>
 
 ## Live URL
 
@@ -67,12 +67,10 @@ In the project planning stage using **Figma** we created layout of the page for 
 
 ## Screenshot
 
-The following screenprints shows the page in the static mode before triggering any of the interactive feature.
+The following screenprints shows the page - on Desktop & Mobile - in the static mode before triggering any of the interactive feature.
 
-![Desktop](/assets/images/Screenimage.png)
-<img src="/assets/images/Screenimage.png" width= 200px>
-![Mobile](/assets/images/Screenimage-mobile.png)
-<img src="/assets/images/Screenimage-mobile.png" width=50px>
+<section align="center">D <img src="/assets/images/Screenimage.png" width= 600px>
+M <img src="/assets/images/Screenimage-mobile.png" width=200px></section>
 
 ## Canvas
 
