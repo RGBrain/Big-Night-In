@@ -70,8 +70,8 @@ In the project planning stage using **Figma** we created layout of the page for 
 
 The following screenprints shows the page - on Desktop & Mobile - in the static mode before triggering any of the interactive feature.
 
-<section align="center">D <img src="/assets/images/Screenimage.png" width= 600px>
-M <img src="/assets/images/Screenimage-mobile.png" width=200px></section>
+<section align="center"> <img src="/assets/images/Screenimage.png" width= 600px>
+ <img src="/assets/images/Screenimage-mobile.png" width=200px></section>
 
 ## Canvas
 
