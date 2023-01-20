@@ -250,6 +250,11 @@ footer p {
 /* Media Queries */
 
 @media screen and (max-width: 864px) {
+  h1 {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
   .container-results h3 {
     width: 80%;
   }
