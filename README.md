@@ -76,7 +76,7 @@ The following screenprints shows the page in the static mode before triggering a
 
 ## Canvas
 
-Link to the slides which present the projects in more details.<br>
+Link to the slides which present the projects in more details - from initial planning stage to the delivery and further development ideas.<br>
 [Canvas slides](https://www.canva.com/design/DAFYDGUA968/XXN0iEb9f64FXwNh9vIfxA/view?utm_content=DAFYDGUA968&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 ##  Tools
