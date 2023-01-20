@@ -5,7 +5,6 @@
   <strong><h4 align="center">Interactive Front-End Application</h4></strong>
 <h4 align="center">Evening Planner - Film &amp; Food inspiration for an evening in</h4>
 
-
 <p align="center">
   <a href="#Overview">Overview</a> •
   <a href="#User-Story">User Story</a> •
@@ -16,55 +15,77 @@
 </p>
 
 ## Overview
-Interactive Front-End Application
 
+Interactive Front-End Application developed by a group of 3 people.
 
+What problem is the app (Big-Night-In) solving?
+
+- A simple, easy to use tool to **help users decide what to watch** during their big night in.
+- A tool that takes the user input to **generate a suggestion of what to watch based on certain criteria**.
+- A tool that not only populates a movie suggestion, but also **provides information about the suggested movie and a rating**.
+- A tool that also **suggests a take out meal suggestion based on the users location** (stored in users local storage).
+
+APIs used: <img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/TMDB%20Logo.svg" alt="API logo" width=70px>
+<img src="https://github.com/RGBrain/Big-Night-In/blob/main/assets/images/JustWatch1-logo.png" alt="API logo" width=70px/>
 
 ## User Story
+
 ```
-AS A person that wants to spend the evening at home
-I WANT to receive recommendations for a movie and food
-SO THAT I don't spend time and energy searching for these myself
+AS A person that wants to spend a night in at home
+
+I WANT to receive a recommendation for something to watch and eat
+
+SO THAT I don’t waste time searching for these myself and aimlessly end up scrolling for hours
 ```
 
 ## Acceptance Criteria
-The app meets the following standards:
-* Use Bootstrap.
-* Be deployed to GitHub Pages.
-* The page is interactive (in other words, accept and respond to user input).
-* Use at least two server-side APIs Links to an external site..
-* Does not use alerts, confirms, or prompts (use modals).
-* Use client-side storage to store persistent data.
-* Is responsive to different screen size
-* Have a polished UI.
 
+The app meets the following requirements:
 
-The following animation demonstrates the application functionality:
-![A user...]()
-
+- Uses Bootstrap.
+- Deployed to GitHub Pages.
+- Interactive (accept and respond to user input).
+- Uses at least two server-side APIs links to an external site.
+- Does not use alerts, confirms, or prompts (use modals).
+- Use client-side storage to store persistent data.
+- Is responsive to different screen size.
+- Have a polished UI.
 
 ## Wireframes/Prototype
-Using **Figma** we created layout of the page for both Desktop and Smartphone screen. 
 
+In the project planning stage using **Figma** we created layout of the page for both Desktop and Smartphone screen.
 
+![](/assets/images/Wireframes%20in%20Figma.png)
 
 ## Live URL
+
 [Link to Deployed Application](https://rgbrain.github.io/Big-Night-In/)
 
-
 ## GitHub Repo
-[Link to GitHub Repo](https://github.com/RGBrain/Big-Night-In.git)
 
+[Link to GitHub Repo](https://github.com/RGBrain/Big-Night-In.git)
 
 ## Screenshot
 
+The following screenprints shows the page in the static mode before triggering any of the interactive feature.
 
-## Tools
+![Desktop](/assets/images/Screenimage.png)
+<img src="/assets/images/Screenimage.png" width= 200px>
+![Mobile](/assets/images/Screenimage-mobile.png)
+<img src="/assets/images/Screenimage-mobile.png" width=50px>
+
+## Canvas
+
+Link to the slides which present the projects in more details - from initial planning stage to the delivery and further development ideas.<br>
+[Canvas slides](https://www.canva.com/design/DAFYDGUA968/XXN0iEb9f64FXwNh9vIfxA/view?utm_content=DAFYDGUA968&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
+##  Tools
+
 <p>
   <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
   <img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
   <img alt="CSS" src="https://img.shields.io/badge/-CSS-CC6699?style=flat-square&logo=css&logoColor=white" />
-</p>
 
+</p>
 
 ---
