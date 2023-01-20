@@ -188,7 +188,6 @@ function filmSearch(queryURL) {
   });
 }
 
-
 // Get info for a given film
 function getFilm(movieID) {
   let queryURL = baseURL + movieInfoURL + movieID + "?api_key=" + APIKEY + lang;
@@ -198,21 +197,26 @@ function getFilm(movieID) {
     method: "GET",
   })
     // Create elements for film information
-    .then(function(response) {
-        let movieDiv = $('<div>');
-        let movieTitle = $('<h2>').text(response.title);
-        let moviePlot = $('<p>').text(response.overview);
-        let movieRating = $('<h4>').text("TMDB Rating: " + response.vote_average.toFixed(1) + "/10");
-        let moviePoster = $('<img>').attr('src', "https://image.tmdb.org/t/p/original/" + response.poster_path);
-        movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
-        console.log()
-        // Remove previous searches
-        $('#results').empty();
-        // Add film recommendation to page
-        $('#results').prepend(movieDiv);
-        $(".container-results").css("display", "block");
-        findFood();
-    })
+    .then(function (response) {
+      let movieDiv = $("<div>");
+      let movieTitle = $("<h3>").text(response.title);
+      let moviePlot = $("<p>").text(response.overview);
+      let movieRating = $("<h4>").text(
+        "TMDB Rating: " + response.vote_average.toFixed(1) + "/10"
+      );
+      let moviePoster = $("<img>").attr(
+        "src",
+        "https://image.tmdb.org/t/p/original/" + response.poster_path
+      );
+      movieDiv.append(movieTitle, moviePlot, movieRating, moviePoster);
+      console.log();
+      // Remove previous searches
+      $("#results").empty();
+      // Add film recommendation to page
+      $("#results").prepend(movieDiv);
+      $(".container-results").css("display", "block");
+      findFood();
+    });
 }
 
 // Create Object Maps
@@ -225,69 +229,87 @@ providerMap();
 
 let userLat = "";
 if (localStorage.getItem("lat")) {
-    userLat = localStorage.getItem("lat");
-}
-else {
-    userLat = 51;
+  userLat = localStorage.getItem("lat");
+} else {
+  userLat = 51;
 }
 let userLong = "";
 if (localStorage.getItem("lon")) {
-    userLon = localStorage.getItem("lon");
-}
-else {
-    userlong = 0
+  userLon = localStorage.getItem("lon");
+} else {
+  userlong = 0;
 }
 
 // Location settings
 const successCallback = (position) => {
-    // console.log(position);
-    userLat = position.coords.latitude;
-    localStorage.setItem('lat', userLat)
-    userLong = position.coords.longitude;
-    localStorage.setItem('lon', userLong)
-    console.log("Your current latitude: " + userLat);
-    console.log("Your current longitude: " + userLong);
-    // findFood(); 
-  };
-  
-  const errorCallback = (error) => {
-    // HANDLE NO LOCATION ERROR
-    console.log(error);
-  };
-  // get position
-  let userLocation = navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+  // console.log(position);
+  userLat = position.coords.latitude;
+  localStorage.setItem("lat", userLat);
+  userLong = position.coords.longitude;
+  localStorage.setItem("lon", userLong);
+  console.log("Your current latitude: " + userLat);
+  console.log("Your current longitude: " + userLong);
+  // findFood();
+};
+
+const errorCallback = (error) => {
+  // HANDLE NO LOCATION ERROR
+  console.log(error);
+};
+// get position
+let userLocation = navigator.geolocation.getCurrentPosition(
+  successCallback,
+  errorCallback,
+  {
     enableHighAccuracy: true,
     timeout: 5000,
-  });
-  
+  }
+);
+
 const ttBaseURL = "https://api.tomtom.com/search/2/";
 const ttAPIKey = "jxWprAPAeXwm1cbD0NLRVPErGVwfEn1u";
 const ttCatSearch = "categorySearch/";
-let foodType = "pizza";;
+let foodType = "pizza";
 let format = ".json";
 
 // Get local pizza!
 function findFood() {
-    let queryURL =  ttBaseURL + ttCatSearch + foodType + format + "?key=" + ttAPIKey + "&lon=" + userLong + "&lat=" + userLat;
-    
-    console.log("API Test: " + queryURL)
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
-    .then(function(response) {
-        // console.log(response)
-        let restaurantText = $('<h2>').text("Treat yourself to a pizza!").addClass("food");
-        let restURL = response.results[0].poi.url;
-        // Add "https://" if not present in URL
-        if (restURL.charAt(0) == 'w') {
-          restURL = "https://" + restURL
-        }
-        let restaurant = $('<a>').text(response.results[0].poi.name).prop("href", restURL).addClass("food-link")
-        let restaurantPhone = $('<h4>').text(response.results[0].poi.phone).addClass("food-contact").prop("href", "http://www.google.com/")
-        $('#results').append(restaurantText);
-        $('#results').append(restaurant);
-        $('#results').append(restaurantPhone);
+  let queryURL =
+    ttBaseURL +
+    ttCatSearch +
+    foodType +
+    format +
+    "?key=" +
+    ttAPIKey +
+    "&lon=" +
+    userLong +
+    "&lat=" +
+    userLat;
 
-    })
+  console.log("API Test: " + queryURL);
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    // console.log(response)
+    let restaurantText = $("<h2>")
+      .text("Treat yourself to a pizza!")
+      .addClass("food");
+    let restURL = response.results[0].poi.url;
+    // Add "https://" if not present in URL
+    if (restURL.charAt(0) == "w") {
+      restURL = "https://" + restURL;
+    }
+    let restaurant = $("<a>")
+      .text(response.results[0].poi.name)
+      .prop("href", restURL)
+      .addClass("food-link");
+    let restaurantPhone = $("<h4>")
+      .text(response.results[0].poi.phone)
+      .addClass("food-contact")
+      .prop("href", "http://www.google.com/");
+    $("#results").append(restaurantText);
+    $("#results").append(restaurant);
+    $("#results").append(restaurantPhone);
+  });
 }
