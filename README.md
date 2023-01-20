@@ -11,7 +11,8 @@
   <a href="#Acceptance-Criteria">Acceptance Criteria</a> •
   <a href="#Wireframes/Prototype">Wireframes/Prototype</a> •
   <a href="#Live-URL">Live URL</a> •
-  <a href="#GitHub-Repo">GitHub Repo</a>
+  <a href="#GitHub-Repo">GitHub Repo</a> •
+  <a href="#Screenshot">Screenshot</a> 
 </p>
 
 ## Overview
