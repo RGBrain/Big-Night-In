@@ -235,9 +235,9 @@ if (localStorage.getItem("lat")) {
 }
 let userLong = "";
 if (localStorage.getItem("lon")) {
-  userLon = localStorage.getItem("lon");
+  userLong = localStorage.getItem("lon");
 } else {
-  userlong = 0;
+  userLong = 0;
 }
 
 // Location settings
